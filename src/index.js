@@ -35,7 +35,7 @@ const truncateText = function(el, bindings) {
 const VueLineClamp = {
   install(Vue, options) {
     options = Object.assign(
-      { importCss: false, textOverflow: 'ellipsis', wordBreak: 'break-word' },
+      { importCss: false, textOverflow: 'ellipsis', wordBreak: 'break-word', hyphens: 'auto' },
       options
     );
 
@@ -46,6 +46,10 @@ const VueLineClamp = {
       overflow: hidden;
       word-break: ${options.wordBreak};
       text-overflow: ${options.textOverflow};
+      -webkit-hyphens: ${options.hyphens};
+      -moz-hyphens: ${options.hyphens};
+      -ms-hyphens: ${options.hyphens};
+      hyphens: ${options.hyphens};
     `;
 
     if (options.importCss) {
